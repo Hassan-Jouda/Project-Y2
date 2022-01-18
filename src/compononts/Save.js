@@ -10,7 +10,13 @@ const Save = ({ auth }) => {
   }
   return (
     <div>
-      <h1>save</h1>
+      <img src={localStorage.getItem("imge")} />
+      <h1>
+        <p>{localStorage.getItem("category")}</p>
+      </h1>
+      <h1>
+        <p>{localStorage.getItem("description")}</p>
+      </h1>
     </div>
   );
 };
