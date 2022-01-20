@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../App.css";
@@ -11,6 +11,7 @@ const Profile = ({ auth, setAuth }) => {
   return (
     <div>
       <h1>Profile</h1>
+
       <img
         className="img"
         src="https://ichef.bbci.co.uk/news/976/cpsprodpb/2B87/production/_90934111_1-1.jpg"

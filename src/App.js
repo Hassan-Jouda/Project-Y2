@@ -19,6 +19,14 @@ function App() {
     }
     return false;
   });
+  const [saved, setSaved] = useState(() => {
+    let localValue = window.localStorage.getItem("saved");
+    if (localValue) {
+      return JSON.parse(localValue);
+    }
+    return [];
+  });
+
   return (
     <div className="App">
       <Router>
@@ -30,11 +38,17 @@ function App() {
             path="/"
             element={auth ? <Home /> : <Logn setAuth={setAuth} />}
           />
-          <Route path="/Save" element={<Save auth={auth} />} />
+          <Route
+            path="/Save"
+            element={<Save auth={auth} saved={saved} setSaved={setSaved} />}
+          />
           <Route path="/About" element={<About auth={auth} />} />
           {/* <Route path="/Logn" element={<Logn />} /> */}
           <Route path="/Profile" element={<Profile auth={auth} />} />
-          <Route path="/Idpage/:id" element={<Idpage auth={auth} />} />
+          <Route
+            path="/Idpage/:id"
+            element={<Idpage auth={auth} saved={saved} setSaved={setSaved} />}
+          />
         </Routes>
       </Router>
     </div>

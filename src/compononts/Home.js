@@ -17,7 +17,7 @@ const Home = ({ test }) => {
   const search = (e) => {
     setSearchValue(e.target.value);
     const filtered = luxuries.filter((item) =>
-      item.category.toLowerCase().includes(e.target.value.toLowerCase())
+      item.title.toLowerCase().includes(e.target.value.toLowerCase())
     );
     setFilter(filtered);
   };
@@ -47,9 +47,9 @@ const Home = ({ test }) => {
                 <Card.Title>{luxuries.category}</Card.Title>
                 <Card.Text>{luxuries.title}</Card.Text>
                 <ListGroupItem>{luxuries.price}</ListGroupItem>
-                {/* <Link to={`/Idpage/${test.id}`} state={luxuries}> */}
-                <Button variant="primary">More</Button>
-                {/* </Link> */}
+                <Link to={`/Idpage/${luxuries.id}`} state={{ luxuries }}>
+                  <Button variant="primary">More</Button>
+                </Link>
               </Card.Body>
             </co1>
           </Card>
